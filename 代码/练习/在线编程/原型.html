@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+
+function Person(name,age){
+	this.name=name;
+	this.sge=age;
+	// this.setName=function(name){
+	// 	this.name=name;
+	// }
+}
+Person.prototype.setName=function(name){
+	this.name=name;
+}
+
+var p1=new Person("Tom",12)
+p1.setName("Tom111")
+console.log(p1);
+
+var p2=new Person("Bob",12)
+p1.setName("Bob111")
+console.log(p1);
+
+
+console.log(p1.__proto__)
+	// function  F1(){
+	// 	this.test1=function(){
+	// 		console.log(22222)
+	// 	}
+	// }
+	// F1.prototype.test=function(){
+	// 	console.log(1111)
+	// }
+	// var f1=new F1();
+	// f1.test();
+	// f1.test1();
+	// console.log(f1);
+	// console.log(f1.toString());
+	// console.log(F1.prototype)
+	// console.log(f1.__proto__)
+	// console.log(Object)
+	// console.log(Object.prototype.__proto__)
+
+
+	// function Word(words){ 
+	// 	this.words = words;
+	// } 
+	// Word.prototype = {
+	//  	alert(){
+	//  	 alert(this.words); 
+	//  	} 
+	// } 
+	// console.log(Word.__proto__ )
+	// //创建实例 
+	// var w = new Word("hello world"); 
+	// w.print = function(){ 
+	// 	console.log(this.words); 
+	// 	console.log(this); //Person对象 
+	// } 
+	// w.print111 = function(){  
+	// 	console.log("1111"); //Person对象 
+	// }
+	// w.print111();
+	// w.print(); //hello world 
+	// w.alert(); //hello world
+</script>
+</html>

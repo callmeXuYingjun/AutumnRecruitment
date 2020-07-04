@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+// user="xushaobin";
+// var o = {
+//     user:"追梦子",
+//     fn:function(){
+//         console.log(user);
+//         console.log(this.user);  //追梦子
+//     }
+// }
+// o.fn();
+
+
+
+// var obj=(function() {
+//   var user = '1-1';
+//   console.log(this)
+//   return {
+//     user: '1-2',
+//     say: function() {
+//       console.log(user);
+//       console.log(this.user);
+//     }
+//   }
+// })();
+// console.log(obj.user)
+// obj.say();
+
+// var o = {
+//     a:10,
+//     b:{
+//         a:12,
+//         fn:function(){
+//             console.log(this.a); //undefined
+//         }
+//     }
+// }
+// o.b.fn();
+// var a=22222;
+// var o = {
+//     a:10,
+//     b:{
+//         a:12,
+//         fn:function(){
+//             console.log(this.a); //undefined
+//             console.log(this); //window
+//         }
+//     }
+// }
+// var j = o.b.fn;
+// console.log(j)
+// j();
+// var obi={
+//     aa:111,
+//     user:function(){
+//         console.log("1111")
+//     }
+// }
+// var aa="121212";
+// function a(){
+//     var aa = "追梦子";
+//     console.log(aa)
+//     console.log(this.aa); //undefined
+//     console.log(this); //Window
+// }
+
+// a.call(obi)
+
+
+// function fn()  
+// {  
+//     this.user = '追梦子';  
+//     return {user:11111};  
+// }
+// var a = new fn;  
+// console.log(a.user); //undefined
+
+
+// function fn()  
+// {  
+//     this.user = '追梦子';  
+//     return function(){};
+// }
+// var a = new fn; 
+// console.log(a.user);
+// console.log(fn.user)
+
+
+// function fn()  
+// {  
+//     this.user = '追梦子';  
+//     return {};  
+// }
+// var a = new fn;  
+// console.log(a.user); //undefined
+// console.log(a);
+
+
+// function fn()  
+// {  
+//     this.user = '追梦子';  
+//     return function(){
+//         console.log("444")
+//     };
+// }
+// var a = new fn;  
+// console.log(a.user); //undefined
+// console.log(a);
+
+// var kk=(function(){  
+//     this.user = '追梦子';  
+//     return {usar:222};  
+// })()
+
+
+// console.log(kk)
+
+// var length = 10;
+// function fn() {
+//     console.log(this.length);
+// }
+ 
+// var obj = {
+//   length: 5,
+//   method: function() {
+//     fn();
+//     console.log(this.length)
+//     fn.call(this);
+//   }
+// };
+ 
+// obj.method();
+var x = 20;
+var a = {
+ x: 15,
+ fn: function() {
+ var x = 30;
+ return function() {
+  return this.x
+ }
+ }
+}
+console.log(a.fn());//function 
+console.log((a.fn())());20
+console.log(a.fn()());20
+console.log(a.fn()() == (a.fn())()); true
+console.log(a.fn().call(this));20
+console.log(a.fn().call(a));15
+</script>
+</html>

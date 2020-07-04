@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ 
+</body>
+<script>
+    function Node(element,left,right){
+        this.element=element;
+        this.left=left;
+        this.right=right;
+    }
+ 
+    var root=new Node(1);
+    var r1=new Node(2);
+    var r2=new Node(3);
+    var r3=new Node(4);
+    var r4=new Node(5);
+    var r5=new Node(6);
+    root.left=r1;
+    root.right=r2;
+    r1.right=r3;
+    r2.left=r4;
+    r2.right=r5;
+    console.log(root);
+
+    //层序遍历
+    function cexu(root){
+        var duilie=[root];
+        var shuzi=[];
+        while(duilie.length!=0){
+            var chu_temp=duilie.shift()
+            shuzi.push(chu_temp.element);
+            if(chu_temp.left){
+                duilie.push(chu_temp.left)
+            }
+            if(chu_temp.right){
+                duilie.push(chu_temp.right)
+            }
+        }
+    return shuzi;
+    }
+        //先续遍历
+    
+    function xianxu(root){
+        var shuzi=[];
+        shuzi.push(root.element);
+        if(root.left){
+            shuzi=shuzi.concat(xianxu(root.left))
+        }
+        if(root.right){
+            shuzi=shuzi.concat(xianxu(root.right))
+        }
+        return shuzi;
+    }
+
+    function zhongxu(root){
+        var shuzi=[];
+        if(root.left){
+            shuzi=shuzi.concat(xianxu(root.left))
+        }
+        shuzi.push(root.element);
+        if(root.right){
+            shuzi=shuzi.concat(xianxu(root.right))
+        }
+        return shuzi;
+    }
+
+    function houxu(root){
+        var shuzi=[];
+        if(root.left){
+            shuzi=shuzi.concat(xianxu(root.left))
+        }
+        if(root.right){
+            shuzi=shuzi.concat(xianxu(root.right))
+        }
+        shuzi.push(root.element);
+        return shuzi;
+    }
+    console.log(cexu(root))
+    console.log(xianxu(root))
+    console.log(zhongxu(root))
+    console.log(houxu(root))
+</script>
+</html>

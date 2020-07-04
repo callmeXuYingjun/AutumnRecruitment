@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+// 构造函数
+function IceCream() {
+  this.scoops = 0;
+}
+
+// 为 IceCream 添加 addScoop 方法
+IceCream.prototype.addScoop = function() {
+  setTimeout(() => { // 一个箭头函数被传递给setTimeout
+    console.log("aaaaaa",this)
+    this.scoops++;
+    console.log('scoop added!');
+    console.log(dessert.scoops);//1
+  }, 0.5);
+};
+
+IceCream.prototype.addScoop1 = function() {
+    var _this=this;
+  setTimeout(function(){ // 一个箭头函数被传递给setTimeout
+    
+    console.log("bbbbb",_this)
+  }, 0.5);
+};
+
+const dessert = new IceCream();
+dessert.addScoop();
+
+dessert.addScoop1();
+
+</script>
+</html>

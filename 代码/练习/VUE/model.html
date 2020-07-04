@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+        
+<div id="app">
+
+        <Select v-model="country" style="width:200px" @onchange="say">
+                <Option v-for="item in d_all" :value="item.country" :key="item.country">{{ item.country }}</Option>
+        </Select>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    d_all:[{country:"China",phone:"chinaphone1"},
+            {country:"China1",phone:"chinaphone2"},
+            {country:"China2",phone:"chinaphone3"},
+            {country:"China3",phone:"chinaphone4"}
+        ],
+    country:"China"
+    },
+methods:{
+    changePhone:function(){
+        alert(this.country)
+    },
+    say:function(){
+        alert(111111)
+    }
+}
+})
+</script>
+</body>
+</html>

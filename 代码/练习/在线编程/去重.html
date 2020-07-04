@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+var str=[1,2,2,3,4,5,1,6,677,889,889,2,1,23,45,6,7,8,8943,2];
+function arrayUnique_hash(str_temp){               //用hash表实现去重
+    var result=[];
+    var temp={};
+    for(var i=0;i<str_temp.length;i++){
+        if(typeof temp[str_temp[i]]=="undefined"){
+            result.push(str_temp[i]);
+            temp[str_temp[i]]=1;
+        }else{
+            temp[str_temp[i]]+=1;
+        }
+    }
+    return result;
+}
+function arrayUnique_bianli(str_temp){
+    var result=[];
+    for(var i=0;i<str_temp.length;i++){
+        if(result.indexOf(str_temp[i])==-1){
+            result.push(str_temp[i])
+        }
+    }
+    return result;
+}
+
+// function arrayUnique_yuandi(str_temp){   //原地去重（未完成）
+//     var biaozhi=false;
+//     while(biaozhi){
+
+//     }
+//     for(var i=0;i<str_temp.length;i++){
+//         for(var j=i+1;j<str_temp;j++){
+//             if(str_temp[i]==str_temp[j]){
+//                 str_temp.splice(j,1)
+//             }
+//         }
+//     }
+//     return str_temp;
+// }
+
+// console.log(arrayUnique_hash(str))
+console.log(arrayUnique_bianli(str))
+console.log(Array.from(new Set(str)))
+// console.log(arrayUnique_yuandi(str))
+</script>
+</html>

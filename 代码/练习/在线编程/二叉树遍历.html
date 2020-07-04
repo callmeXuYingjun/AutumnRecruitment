@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ 
+</body>
+<script>
+    /*this.insert=insert//插入节点（insert node)
+    this.find=find//查找元素(find node in Binary tree)
+    this.getMin=getMin//查找最小值(get the min node in Binary tree)
+     this.getMax=getMax//查找最大值(get the max node in Binary tree)
+     this.remove =remove //移除节点(Remove node from binary tree)
+     this.InSort =InSort //中序遍历（In-order traversal）
+     this.PreSort =PreSort //前序遍历（Pre-order traversal）
+     this.PostSort=PostSort  //后序遍历（post-order traversal）
+                      
+     */
+    function Node(element,left,right,parent){
+        this.element=element;
+        this.left=left;
+        this.right=right;
+        this.parent=parent;
+        this.show=function () {
+            return this.element;
+        }
+    }
+ 
+ 
+    function BST() {
+        this.root=null;
+ 
+        //插入节点（insert node)
+        this.insert=function (element) {
+            var node=new Node(element,null,null);
+            if(this.root==null){
+                this.root=node;
+            }else{
+                var buffer=this.root;
+                var parent;
+                while(true){
+                    parent=buffer;
+                    if(element>buffer.element){
+                        buffer=buffer.right;
+                        if(buffer==null){
+                            node.parent=parent;
+                            parent.right=node;
+                            break;
+                        }
+ 
+                    }else {
+                        buffer=buffer.left;
+                        if(buffer==null){
+                            node.parent=parent;
+                            parent.left=node;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+ 
+        //查找元素(find node in Binary tree)
+        this.find=function (element) {
+            var node = this.root;
+            while(true){
+                if(node==null||node.element==element){
+                    return node;
+                }else if(node.element<element){
+                    node=node.right;
+                }else if(node.element>element){
+                    node=node.left;
+                }
+            }
+ 
+        }
+ 
+        //查找最小值(get the min node in Binary tree)
+        this.getMin=function (element) {
+            var node=this.find(element);
+            while(node.left!=null){
+                node=node.left;
+            }
+            return node;
+        }
+ 
+ 
+        //查找最大值(get the max node in Binary tree)
+        this.getMax=function (element) {
+            var node=this.find(element);
+            while(node.right!=null){
+                node=node.right;
+            }
+            return node;
+        }
+ 
+        //移除节点(Remove node from binary tree)
+        this.remove=function (element) {
+            var node=this.find(element);
+            //要移除的节点为空（The node to be removed is null）
+            if(node==null)
+                return;
+            //移除的为根节点（Removed as root node）
+            if(node.parent==null){
+                //节点的右节点不为空（The right node of the node is not null）
+                if(node.right!=null){
+                    this.root=node.right;
+                    this.root.parent=null;
+                    var minNode=this.find(node.right.element);
+                    minNode.left=node.left;
+                }else{//节点的右节点为空（The right node of the node is  null）
+                    this.root=node.left;
+                    this.root.parent=null;
+                }
+            }else{//移除的不为根节点（Removed is not the root node）
+                var parent=node.parent;
+                if(parent.element<node.element){
+                    if(node.right!=null){
+                        var minNode=this.geMin(node.right.element);
+                        minNode.left=node.left;
+                        node.left.parent=minNode;
+                        parent.right=node.right;
+                        node.right.parent=parent;
+                    }else {
+                        parent.right=node.left;
+                        if(node.left!=null)
+                            node.left.parent=parent;
+                    }
+                }else{
+                    if(node.right!=null){
+                        var minNode=this.geMin(node.right.element);
+                        minNode.left=node.left;
+                        node.left.parent=minNode;
+                        parent.left=node.right;
+                        node.right.parent=parent;
+                    }else {
+                        parent.left=node.left;
+                        if(node.left!=null)
+                            node.left.parent=parent;
+                    }
+                }
+            }
+ 
+ 
+        }
+ 
+ 
+        //中序遍历（In-order traversal）
+        this.InSort=function (node) {
+            if(node!=null){
+                this.insort(node.left);
+                console.log(node.show())
+                this.insort(node.right);
+            }
+        }
+ 
+        //前序遍历（Pre-order traversal）
+        this.PreSort=function (node) {
+            if(node!=null){
+                console.log(node.show())
+                this.insort(node.left);
+                this.insort(node.right);
+            }
+        }
+ 
+ 
+        //后序遍历（post-order traversal）
+        this.PostSort=function (node) {
+            if(node!=null){
+                this.insort(node.left);
+                this.insort(node.right);
+                console.log(node.show())
+            }
+        }
+    }
+    var bst=new BST();
+    bst.insert(23);
+    bst.insert(45);
+    bst.insert(16);
+    bst.insert(37);
+    bst.insert(3);
+    bst.insert(99);
+    bst.insert(22);
+    //中序遍历
+   // bst.InSort(bst.root)
+    //前序遍历
+    //bst.PreSort(bst.root)
+    //后序遍历
+    bst.PostSort(bst.root);
+</script>
+</html>

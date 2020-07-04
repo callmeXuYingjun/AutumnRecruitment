@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id='div' onclick='alert("div");'>
+        <ul onclick='stop(event);'>
+        <li onclick='alert("li");'>test</li>
+        <a href="http://caibaojian.com/" id="testB" onclick='stop_default(event);'>caibaojian.com</a>
+        <li>
+    </ul>
+    </div>
+</body>
+    <script>
+        function stop(event){
+            event.stopPropagation();
+            alert("ul")
+        }
+        function stop_default(event){
+            event.preventDefault();
+            alert("baidu")
+        }
+    </script>
+</html>

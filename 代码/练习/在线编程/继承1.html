@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+function ClassA(sColor) {
+    this.color = sColor;
+    this.sayColor = function () {
+        alert(this.color);
+    };
+}
+ClassA.prototype.say=function(){
+    alert("2222222222222")
+}
+
+
+//对象冒充可以实现多重继承,但不涉及原型
+// function ClassB(sColor, sName) {
+//     this.newMethod = ClassA;
+//     this.newMethod(sColor);
+//     delete this.newMethod;
+//     this.name = sName;
+//     this.sayName = function () {
+//         alert(this.name);
+//     };
+// }
+
+
+// var objA = new ClassA("blue");
+// var objB = new ClassB("red", "John");
+// objA.sayColor();	//输出 "blue"
+// objB.sayColor();	//输出 "red"
+// objB.sayName();		//输出 "John"
+// console.log(objA)
+// console.log(objB)
+
+
+
+  /** 
+   * Call/Apply方法改变函数上下文实现继承（该种方式不能继承原型链，若想继承原型链，则采用混合模式）
+   * 实现原理：改变函数内部的函数上下文this，使它指向传入函数的具体对象
+   */
+function ClassB(sColor, sName) {
+    //this.newMethod = ClassA;
+    //this.newMethod(color);
+    //delete this.newMethod;
+    ClassA.call(this, sColor);
+
+    this.name = sName;
+    this.sayName = function () {
+        alert(this.name);
+    };
+}
+
+
+
+
+
+  /**
+   * 原型链实现继承
+   * 实现原理：使子类原型对象指向父类的实例以实现继承，即重写类的原型，弊端是不能直接实现多继承
+   */
+// function ClassB() {
+// }
+
+// ClassB.prototype = new ClassA();
+
+// ClassB.prototype.name = "";
+// ClassB.prototype.sayName = function () {
+//     alert(this.name);
+// };
+
+
+ /**
+   * 混合模式
+   */
+function ClassB(firstname) {
+    ClassA.call(this);
+    this.fname = firstname;
+    this.age = 28;
+    this.saySomeThing = function() {
+      console.log(this.fname);
+      this.sayAge();
+    }
+  }
+ClassB.prototype = new ClassA();
+
+
+
+
+
+
+
+
+var objA = new ClassA();
+var objB = new ClassB();
+console.log(objA)
+console.log(objB)
+
+
+</script>
+
+
+</html>

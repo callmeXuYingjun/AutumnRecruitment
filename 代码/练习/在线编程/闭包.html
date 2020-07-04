@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+function a(){  
+    var tmp=1;  
+    return function a_sub(x){  
+       console.log(x+(tmp++));  
+    }  
+}  
+  
+// var b = a;      //此处a和b是一模一样的,b是从a拷贝了一份过去  
+var c1 = a();   //此处a加上了括号，于是c1的函数其实就是 a中return回来的函数（此函数可以调用a外面的变量tmp）  
+var c2 = a();   //为了证明a和b是同样的功能，且是复制了一份  
+c1(3);    //输出4  
+c1(3);    //输出5,——说明a并内存并未释放  
+c2(3);    //输出4——说明a和b是复制关系(两个独立的对象)，内存中互相独立  
+</script>
+</html>

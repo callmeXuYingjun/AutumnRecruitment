@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+	function Node(element,right){
+		this.element=element;
+		this.right=right;
+	}
+	var n1=new Node(1.1);
+	var n2=new Node(2.1);
+	var n3=new Node(3);
+	var n4=new Node(4.1);
+	var n5=new Node(5.1);
+	n1.right=n2;
+	n2.right=n3;
+	n3.right=n4;
+	n4.right=n5;
+	var m1=new Node(5);
+	var m2=new Node(4);
+	var m3=new Node(7);
+	var m4=new Node(8);
+
+	m1.right=m2;
+	m2.right=m3;
+	m3.right=m4;
+	m4.right=n3;
+
+
+// 	function jiaocha(a,b){
+// 	var biaozhi=-1;
+// 	var n_new=a;
+// 	while (typeof(n_new.right)!="undefined" ){
+// 		var m_new=b;
+//         while (typeof(m_new.right)!="undefined"){
+//         	if(n_new.element==m_new.element){
+//         		biaozhi=m_new.element;
+//         	}
+//         	m_new=m_new.right;
+//     	}
+//     	n_new=n_new.right;
+//     }
+//     return biaozhi;
+// }
+
+
+function jiaocha(a,b){
+	var num1=0,num2=0;
+	var head1=a;
+	var head2=b;
+	while(head1.right!=null){
+		num1++;
+		head1=head1.right;
+	}
+	while(head2.right!=null){
+		num2++;
+		head2=head2.right;
+	}
+	
+	if(num2>num1){
+		for(var i=0;i<num2-num1;i++){
+			b=b.right
+		}
+		while(a!=b){
+			a=a.right
+			b=b.right
+		}
+		return a
+	}else{
+		for(var i=0;i<num1-num2;i++){
+			a=a.right
+		}
+		while(a!=b){
+			a=a.right
+			b=b.right
+		}
+		return a
+	}
+}
+
+function jiaocha1(a,b){
+	var head1=a;
+	var head2=b;
+	while(head1!=head2){
+		if(head1.right==null){
+			head1=b
+		}else{
+			head1=head1.right;
+		}
+		if(head2.right==null){
+			head2=a
+		}else{
+			head2=head2.right;
+		}
+	}
+	return head1
+}
+console.log(jiaocha(n1,m1))
+console.log(jiaocha1(n1,m1))
+</script>
+</html>

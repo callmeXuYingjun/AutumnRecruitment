@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+//======================let\const================
+// function aa(){
+//     // for(let i=0;i<10;i++){
+//     //     console.log(1111);
+//     // }
+//     // console.log(i)
+//     if(2<1){
+//         const s="1111";
+//     }else{
+//         const s="2222222"
+//         s="4444";
+//         console.log(s)
+//     }
+
+// }
+// aa()
+
+
+// //======================模板字面量================
+// const student = {
+//   name: 'Richard Kalehoff',
+//   guardian: 'Mr. Kalehoff'
+// };
+
+// const teacher = {
+//   name: 'Mrs. Wilson',
+//   room: 'N231'
+// }
+
+// let message = student.name + ' please see ' + teacher.name + ' in ' + teacher.room + ' to pick up your report card.';
+// console.log(message)
+
+// let message1 = `${student.name} please see ${teacher.name} in ${teacher.room} to pick up your report card.`;
+// console.log(message1)
+
+
+//======================解构================
+// const point = [10, 25, -34];
+// const [x, y, z] = point;
+// console.log(x, y, z);
+
+
+// const gemstone = {
+//   type: 'quartz',
+//   color: 'rose',
+//   karat: 21.29
+// };
+// const {type, color, karat} = gemstone;
+// console.log(type, color, karat);
+
+// let type = 'quartz';
+// let color = 'rose';
+// let carat = 21.29;
+// let kk=function(){
+//     console.log(1111)
+// }
+// const gemstone = {type,color,carat,kk};
+// console.log(gemstone);
+
+// var a=gemstone
+// a.kk();
+
+
+// Array.prototype.aaaaaaaqweqw = function() {
+//   for (let i = 0; i < this.length; i++) {
+//     this[i] = this[i].toFixed(2);
+//   }
+// };
+
+// const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// console.log(digits)
+// console.log(digits.__proto__)
+// // for (const index in digits) {
+// //   console.log(digits[index]);
+// // }
+// Array.prototype.aaaaaaaqweqw = function() {
+//   for (let i = 0; i < this.length; i++) {
+//     this[i] = this[i].toFixed(2);
+//   }
+// };
+// var strs=[12,3,4,5,6];
+// for(const str of strs){
+//     console.log(str)
+// }
+
+// let str=[1,2,3,11,4];
+// let ss=new Set(str);
+// console.log(ss)
+
+// let ff=new Map();
+// ff.set("111",1111);
+// ff.set("222",2222)
+// console.log(ff);
+
+// var list_key = new Set([1,2,3]);
+// console.log(list_key);
+// list_key.add(3);
+// list_key.add(3);
+// list_key.add('wang');
+// list_key.add('3');
+// console.log(list_key);
+// list_key.delete(3);
+// console.log(list_key);
+// var str=[1,2,3,4,5];
+// str=str.map(item=>{
+//     console.log(this)
+//     console.log("111111111111")
+//     return item+1;
+// })
+// console.log(str)
+
+// class point{
+//     constructor(x,y){
+//         this.out="";
+//         this.x=x;
+//         this.y=y;
+//     }
+//     static hhh(){
+//         console.log(this.out)
+//         this.out=this.x;
+//         console.log(this.out)
+//     }
+//     fff(){
+//         console.log("ffffffff")
+//     }
+
+// } 
+// point.prototype.caonima=function(){
+//     console.log("hhahah");
+// }
+// var classA=new point(11111,22222222)
+// console.log(point.hhh())
+// console.log(classA.hhh())
+// console.log(point.prototype);
+// console.log(classA.prototype);
+// console.log(classA.__proto__);
+// classA.caonima()
+
+
+// new Promise(function(resolve,reject){
+//     setTimeout(function(){
+//         console.log(1111111)
+//         resolve()
+//     },1000)
+// }).then(new Promise(function(resolve,reject){
+//     setTimeout(function(){
+//         console.log(22222)
+//         resolve()
+//     },1000)
+// })).then(console.log("333333"))
+
+// function zuofan()
+
+
+// function zuofan(){
+//     var data="做饭";
+//    return  new Promise(function(resolve,reject){
+//         setTimeout(function(){
+//             console.log("zuofan");
+//             resolve(data);
+//         },1000);
+        
+//     })
+// }
+// function chifan(data){
+//    return  new Promise(function(resolve,reject){
+//         setTimeout(function(){
+//             console.log("chifan");
+//             resolve(data);
+//         },2000);
+        
+//     })
+// }
+
+// zuofan()
+// .then(function(data){
+//     return chifan(data)
+// })
+// .then(function(data){
+//     console.log(data);
+// })
+
+
+// class Animal{
+//     constructor(){
+//         this.legs=4;
+//         this.mouth=1;
+//     }
+//     speak(){
+//         console.log("我是一个动物:拥有腿->"+this.legs);
+//      }
+//     get type(){
+//         console.log(this.mouth+"个嘴的"+this.legs||"哺乳动物");
+//     }
+//     set type(typer){
+//         console.log("shezhi ")
+//         this.typer=typer;
+//     }
+//     static runny(){
+//         console.log("我正在奔跑");
+//     }
+//     static get dowhat(){
+//         console.log("我说了我正在奔跑");
+//     }
+// }
+// class Monkey extends Animal{
+//     constructor(){
+//         super();
+//         this.legs=2;
+//         this.tui=2;
+//     }
+//     special(){
+//         this.type;
+//         // super.legs=5;
+//         // // console.log(this.legs)
+//         // super.type="高级哺乳动物";
+//         // super.type;
+//         // console.log(super.legs);
+//     }
+// }
+// var monkey=new Monkey();
+// monkey.special();
+
+
+class People{
+    constructor(){
+        this.shou=2;
+        this.zui=1;
+    }
+    speak(name){
+        console.log(name)
+    }
+}
+
+class  China extends People{
+    constructor(){
+        super();
+        this.country="China"
+    }
+    cook(){
+        console.log("做饭"+this.shou)
+    }
+}
+
+// var people1=new People();
+// people1.speak("sadas")
+
+var chinaese1=new China();
+chinaese1.speak("11111111111")
+chinaese1.cook()
+
+
+</script>
+</html>

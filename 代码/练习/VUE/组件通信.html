@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+        <div class="app">
+                我是父组件
+                <!--父组件监听子组件触发的say方法，调用自己的parentSay方法-->
+                <!--通过:msg将父组件的数据传递给子组件-->
+                <children :msg="msg" @say="parentSay"></children>
+        </div>
+</body>
+<script>
+            // 注册
+            Vue.component('child', {
+              // 声明 props
+              props: ['message'],
+              // 同样也可以在 vm 实例中像 “this.message” 这样使用
+              template: '<span>{{ message }}</span>'
+            })
+            // 创建根实例
+            new Vue({
+              el: '#app'
+            })
+
+</script>
+</html>

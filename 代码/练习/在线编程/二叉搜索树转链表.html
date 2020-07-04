@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+function TreeNode(x) {
+    this.val = x;
+    this.left = null;
+    this.right = null;
+} 
+function Convert(pRootOfTree)
+{
+    var out=Zhong(pRootOfTree);
+    out[0].left=out[1];
+    for(var i=1;i<out.length-1;i++){
+        out[i].left=out[i+1];
+        out[i].right=out[i-1]
+    }
+    out[out.length-1].left=out[out.length-2];
+    return out[0]
+}
+function Zhong(head){
+    var out=[];
+    if(head.left!=null){
+        out=out.concat(Zhong(head.left))
+    }
+    out.push(head);
+    if(head.right!=null){
+        out=out.concat(Zhong(head.right))
+    }
+    return out;
+}
+
+var a1=new TreeNode(5)
+var a2=new TreeNode(3)
+var a3=new TreeNode(7)
+var a4=new TreeNode(1)
+var a5=new TreeNode(4)
+var a6=new TreeNode(6)
+var a7=new TreeNode(9)
+
+a1.left=a2;
+a1.right=a3;
+a2.left=a4;
+a2.right=a5;
+a3.left=a6;
+a3.right=a7;
+
+console.log(Convert(a1))
+
+</script>
+</html>

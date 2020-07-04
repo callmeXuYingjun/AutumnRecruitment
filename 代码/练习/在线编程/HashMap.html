@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+function Node(hang,lie,right){
+    this.hang=hang;
+    this.lie=lie;
+    this.right=right;
+}
+
+
+
+function  ran(n,m){
+    var w=m-n;
+    return Math.round(Math.random()*w+n+1)
+}
+var DNA=[];
+for(var i=0;i<10000;i++){
+    DNA[i]=[];
+    for(var j=0;j<100;j++){
+        DNA[i][j]=ran(1000000,1500000);
+    }
+}
+
+console.log(DNA)
+
+alert("数据初始化完成")
+function Hash(){
+    //定义长度  
+    var length = 0;  
+    //创建一个对象  
+    var obj = new Object();  
+    this.put=function(key,value1,value2){
+        if(this.containsKey(key)){
+            var temp_wei=obj[key].end;
+            temp_wei.right=new Node(value1,value2);
+            obj[key].end=temp_wei.right;
+        }else{
+            obj[key]={};
+            obj[key].head =new Node(value1,value2); 
+            obj[key].end=obj[key].head; 
+        }
+    };  
+    this.containsKey=function(key){  
+        return (key in obj);  
+    };  
+    this.showObj=function(key){
+        console.log(obj)
+    }
+    this.show=function(key){
+        if(typeof obj[key]=="undefined"){
+            console.log("没有该条DNA序列")
+        }else{
+            var temp_wei=obj[key].head;
+            while(temp_wei!=null){
+                console.log((temp_wei.hang+1)+"行-"+(temp_wei.lie+1)+"列")
+                temp_wei=temp_wei.right;
+            } 
+        }
+    }
+}
+
+var map = new Hash(); 
+for(var i=0;i<DNA.length;i++){
+    for(var j=0;j<DNA[0].length;j++){
+        map.put(DNA[i][j],i,j); 
+    }   
+}
+
+alert("索引建立完毕")
+map.show(1020500)
+
+
+alert("查询结束")
+
+
+
+</script>
+</html>

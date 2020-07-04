@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>旋转多边形</title>
+    <style>
+            body{ text-align:center; background-color:#fff;} 
+            #Container{
+                width:100vw;
+                height:100vh;
+                margin:0 auto;
+            }
+            .div {
+                position: absolute;
+                width: 50px;
+                height: 86.6px;
+                background-color: rgb(114, 107, 107);
+                animation: xuanzhuan 2s linear 0s infinite;
+            }
+            .div:before {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                right:50px;
+                border-width: 43.3px 25px;
+                border-style: solid;
+                border-color: transparent rgb(114, 107, 107) transparent transparent;
+            }
+            .div:after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 0;
+                height: 0;
+                left:50px;
+                border-width: 43.3px 25px;
+                border-style: solid;
+                border-color: transparent transparent transparent rgb(114, 107, 107);
+                top:0;
+            }
+            @keyframes xuanzhuan{
+                from{
+                    transform: translate(-50%,-50%) rotate(0deg)
+                }
+                to{
+                    transform: translate(-50%,-50%) rotate(360deg)
+                }
+            }
+
+    </style>
+</head>
+<body>
+    <div id="Container" onclick="add(event)">
+    </div>
+    
+</body>
+<script>
+    function add(event){
+        var x=event.clientX
+        var y=event.clientY
+　　　　 var div = document.createElement("div");
+　　　　 div.setAttribute("class", "div");
+        div.style.top = y+'px';  
+        div.style.left = x+'px';  
+        var parent=document.getElementById("Container");
+        parent.appendChild(div);  
+    }
+</script>
+</html>

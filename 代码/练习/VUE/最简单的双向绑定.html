@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <input type="text" id="inp" value="xushaobnin">
+</body>
+
+<script>
+// var imp=document.getElementById("inp");
+// var demo=document.getElementById("demo")
+// var obj={};
+// Object.defineProperty(obj, 'name', {
+//         get: function() {
+//             return val;
+//         },
+//         set: function (newVal) {
+//             // name=newVal
+//             demo.innerHTML = newVal;
+//         }
+// })
+// imp.addEventListener('input', function(e) {
+//             // 给obj的name属性赋值，进而触发该属性的set方法
+//             obj.name = e.target.value;
+//         });
+
+var imp=document.getElementById("inp");
+var demo=document.getElementById("demo")
+var obj={};
+demo.innerHTML =imp.value;
+Object.defineProperty(obj, 'name', {
+        get: function() {
+            return val;
+        },
+        set: function (newVal) {
+            demo.innerHTML =newVal;
+        }
+})
+
+imp.addEventListener('input', function(e) {
+            // 给obj的name属性赋值，进而触发该属性的set方法
+            obj.name = e.target.value;
+        });
+
+
+
+
+
+
+
+
+
+
+// var obj  = {};
+//         var demo = document.querySelector('#demo')
+//         var inp = document.querySelector('#inp')
+//         Object.defineProperty(obj, 'name', {
+//             get: function() {
+//                 return val;
+//             },
+//             set: function (newVal) {//当该属性被赋值的时候触发
+//                 inp.value = newVal;
+//                 demo.innerHTML = newVal;
+//             }
+//         })
+//         inp.addEventListener('input', function(e) {
+//             // 给obj的name属性赋值，进而触发该属性的set方法
+//             obj.name = e.target.value;
+//         });
+//         obj.name = 'fei';//在给obj设置name属性的时候，触发了set这个方法
+
+// var obj  = {};
+// Object.defineProperty(obj, 'name', {
+//         get: function() {
+//             console.log('我被获取了')
+//             return val;
+//         },
+//         set: function (newVal) {
+//             console.log('我被设置了')
+//         }
+// })
+// obj.name = 'fei';//在给obj设置name属性的时候，触发了set这个方法
+// var val = obj.name;//在得到obj的name属性，会触发get方法
+
+</script>
+</html>

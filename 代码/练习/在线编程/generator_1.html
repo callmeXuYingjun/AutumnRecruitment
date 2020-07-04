@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+// // // "use strict";
+// // function* fibonacci() {
+// //     yield 1;
+// //     yield 2;
+// // }
+
+// // var it = fibonacci();
+// // console.log(it);          // "Generator {  }"
+// // console.log(it.next());   // 1
+// // console.log(it.next());   // 2
+// // console.log(it.next()); //undefined
+
+// // function* gen() {
+// //     yield 0;
+// //     yield 1;
+// //     return 2;
+// //     yield 3;
+// // };
+// // let g = gen();
+
+// // // console.log(g.next(),g.next(),g.next(),g.next());
+
+// function* foo(x) {
+//     var y = 2 * (yield (x + 1));
+//     console.log(y)
+//     var z = yield (y / 3);
+//     console.log(z)
+//     return (x + y + z);
+// }
+
+// // var a = foo(5);
+// // console.log(a.next()) // Object{value:6, done:false}
+// // console.log(a.next()) // Object{value:NaN, done:false}
+// // console.log(a.next()) // Object{value:NaN, done:true}
+
+// var b = foo(5);
+// console.log(b.next()) // { value:6, done:false }
+// console.log(b.next(12))// { value:8, done:false }
+// console.log(b.next(13)) // { value:42, done:true }
+
+
+// function* Hello() {
+//     yield 100
+//     yield (function () {return 200})()
+//     return 300
+// }
+
+// var h = Hello()
+// console.log(typeof h)  // object
+
+// console.log(h.next())  // { value: 100, done: false }
+// // console.log(h.next())  // { value: 200, done: false }
+// console.log(h.next())  // { value: 300, done: true }
+// console.log(h.next())  // { value: undefined, done: true }
+
+
+
+// function readfile(url){
+//     setTimeout(() => {
+//         var data=url+"_read";
+//         console.log(data)
+//         return data;
+//     }, 2000);
+// }
+
+// // readfile("a.json")
+
+// function* aaa() {
+//     const r1 = yield readfile('some1.json')
+//     console.log(r1)  // 打印第 1 个文件内容
+//     const r2 = yield readfile('some2.json')
+//     console.log(r2)  // 打印第 2 个文件内容
+//     const r3 = yield readfile('some3.json')
+//     console.log(r3)  // 打印第 3 个文件内容
+//     const r4 = yield readfile('some4.json')
+//     console.log(r4)  // 打印第 4 个文件内容
+// }
+
+// var a=aaa();
+// a.next();
+// a.next();
+// a.next();
+// a.next();
+
+// Function.prototype.bind1 = function (oThis) {
+//     if (typeof this !== "function") {
+//       throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+//     }
+//     console.log(this)
+//     var aArgs = Array.prototype.slice.call(arguments, 1), 
+//         fToBind = this, 
+//         fNOP = function () {},
+//         fBound = function () {
+//           return fToBind.apply(
+//               this instanceof fNOP && oThis ? this : oThis || window,
+//               aArgs.concat(Array.prototype.slice.call(arguments))
+//           );
+//         };
+
+//     fNOP.prototype = this.prototype;
+//     fBound.prototype = new fNOP();
+
+//     return fBound;
+//   };
+// Function.prototype.bind2 = function (oThis) {
+//     var fToBind = this;
+//     var aArgs = Array.prototype.slice.call(arguments,1);
+//     var fBound=function(){
+//         return fToBind.apply(oThis,aArgs)
+//     }
+//     return fBound();
+//   };
+// function Fn(){
+//     this.name="xushaobin";
+//     this.sayName=function(str){
+//         console.log(this.name+str);
+//     }
+// }
+// var a=new Fn();
+// var zhangsan={
+//     name:"zhangsan"
+// }
+
+// a.sayName.bind2(zhangsan,1212)
+
+
+</script>
+</html>
